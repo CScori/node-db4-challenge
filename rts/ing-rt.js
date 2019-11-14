@@ -20,4 +20,9 @@ router.get('/recipes/:id/steps', (req, res) => {
     .then(steps => res.status(200).json(steps))
     .catch(err => res.status(500).json({ error: `${err}`}))
 })
+router.get('/recipes/:id/shop', (req, res) => {
+    helper.findShopping(req.params.id)
+    .then(shop => res.status(200).json(shop))
+    .catch(err => res.status(500).json({ error: `${err}`}))
+})
 module.exports = router
